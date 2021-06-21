@@ -170,10 +170,10 @@ function submitForm() {
 
     if (authorInput === "" || titleInput === "" || pagesInput === "") {
         errorMessage.textContent = "You must fill in all entry fields!";
-    } else if (authorInput.length > 35) {
-        errorMessage.textContent = "Author's name length must be less than 35 characters."
-    } else if (titleInput.length > 100) {
-        errorMessage.textContent = "Title's length must be less than 100 characters."
+    } else if (authorInput.length >= 29) {
+        errorMessage.textContent = "Author's name length must be less than 29 characters."
+    } else if (titleInput.length >= 95) {
+        errorMessage.textContent = "Title's length must be less than 95 characters."
     } else if (pagesInput > 99999) {
         errorMessage.textContent = "That's a reaaaally long book you're reading..."
     } else if (isNaN(pagesInput)) {

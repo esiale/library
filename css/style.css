@@ -161,6 +161,7 @@ footer {
     margin: 0 1rem 0;
     align-self: start;
     text-shadow: 2px 2px 2px rgba(153, 153, 255, 1);
+    word-break: break-word;
 }
 
 .card-author {
@@ -168,6 +169,7 @@ footer {
     margin: 1rem 1rem 0;
     text-shadow: 2px 2px 2px rgba(153, 153, 255, 1);
     font-style: italic;
+    word-break: break-word;
 }
 .card-pages {
     grid-area: pages;
