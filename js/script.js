@@ -48,7 +48,7 @@ function displayLibrary() {
         cardButtons.classList.add("card-buttons");
         newCard.appendChild(cardButtons);
         let removeIcon = document.createElement("img");
-        cardButtons.appendChild(removeIcon).src = "library/img/clear.png";
+        cardButtons.appendChild(removeIcon).src = "img/clear.png";
         removeIcon.addEventListener("click", removeCard);
     });
 }

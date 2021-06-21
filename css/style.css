@@ -50,7 +50,7 @@ h1 {
         "header header"
         "sidebar main"
         "footer footer";
-    background-image: url(library/img/bg-container.jpg);
+    background-image: url(img/bg-container.jpg);
     background-position: center center;
     background-attachment: fixed;
     background-size: cover;
