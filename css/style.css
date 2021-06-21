@@ -1,0 +1,358 @@
+:root {
+    --primary: rgb(153, 153, 255);
+    --secondary: rgb(102, 102, 153);
+    --gray: rgb(179, 179, 179);
+    --lightgray: rgb(221, 221, 221);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 0.5rem;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #808080;
+    border-radius: 1rem;
+}
+
+body {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+    background: var(--lightgray);
+    font-size: 1.1rem;
+    line-height: 1.5;
+}
+
+h1 {
+    margin: 0;
+    padding: 0.5rem;
+}
+
+.wrapper {
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+}
+
+.container {
+    align-self: center;
+    justify-self: center;
+    height: 85%;
+    width: 85%;
+    display: grid;
+    grid-template-columns: 1fr 5fr;
+    grid-template-rows: 1fr 7fr 0.5fr;
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    background-image: url(/img/bg-container.jpg);
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+    border: 0.2rem solid rgba(102, 102, 153, 0.7);
+    border-radius: 0.5rem;;
+    overflow: hidden;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;              
+}
+
+header {
+    display: grid;
+    grid-area: header;
+    background: rgba(153, 153, 255, 0.8);
+    align-items: start;
+}
+
+
+#main {
+    grid-area: main;
+    overflow: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-auto-rows: 1fr;
+    justify-items: center;
+}
+
+/* Footer */
+
+footer {
+    display: grid;
+    grid-area: footer;
+    background: rgba(102, 102, 153, 0.8);
+    font-size: 0.8rem;
+    justify-items: end;
+    align-items: end;
+    text-decoration: none;
+}
+
+.footer-attribution * {
+    text-decoration: none;
+    color: #000;
+}
+
+.odin {
+    margin: 0 1.4rem;
+    font-weight: 600;
+}
+
+/* Sidebar */
+
+#sidebar {
+    display: grid;
+    grid-template-rows: 1fr 2fr;
+    grid-area: sidebar;
+    background: rgba(179, 179, 179, 0.8)
+}
+
+#sidebar button {
+    appearance:none;
+    -webkit-appearance:none;
+    padding: 0.5rem;
+    margin: 2rem 0.5rem;
+    justify-self: center;
+    border: 0;
+    background-color: rgba(153, 153, 255, 0.8);
+    font-weight: 600;
+    font-size: 1.5rem;
+    border-radius: 0.2rem;
+    width: 80%;
+    height: 3rem;
+    font-family: inherit;
+    font-size: inherit;
+    transition-duration: 0.4s;
+}
+
+#sidebar button:hover {
+    background-color: rgba(179, 179, 179, 0.8);
+}
+
+#sidebar p {
+    font-size: 0.9rem;
+    align-self: end;
+    text-align: center;
+}
+
+/* Card */
+
+.card {
+    width: 15rem;
+    height: 15rem;
+    background: rgba(221, 221, 221, 0.8);
+    margin: 1rem;
+    border: 0.2rem solid rgba(102, 102, 153, 0.2);
+    border-radius: 0.5rem;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+
+    display: grid;
+    grid-template-columns: 40% 40% 20%;
+    grid-template-rows: 30% 50% 20%;
+    grid-template-areas:
+        "author author buttons"
+        "title title title"
+        "read pages pages"
+}
+
+.card-title {
+    grid-area: title;
+    margin: 0 1rem 0;
+    align-self: start;
+    text-shadow: 2px 2px 2px rgba(153, 153, 255, 1);
+}
+
+.card-author {
+    grid-area: author;
+    margin: 1rem 1rem 0;
+    text-shadow: 2px 2px 2px rgba(153, 153, 255, 1);
+    font-style: italic;
+}
+.card-pages {
+    grid-area: pages;
+    align-self: center;
+    justify-self: center;
+    text-shadow: 2px 2px 2px rgba(153, 153, 255, 1);
+}
+
+.card-read {
+    grid-area: read;
+    align-self: center;
+    justify-self: center;
+    color: rgb(51, 102, 0);
+    transition: transform .2s;
+}
+
+.card-buttons {
+    grid-area: buttons;
+    text-align: right;
+}
+
+.card-read:hover {
+    transform: scale(1.3);
+}
+
+.card-buttons img {
+    max-width: 40%;
+    max-height: 40%;
+    margin: 0.2rem;
+    opacity: 0.5;
+    transition: opacity .2s;
+}
+
+.card-buttons img:hover {
+    opacity: 1;
+}
+
+/* Add new book form */
+
+.overlay {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+}
+
+.book-form {
+    z-index: 10000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 29rem;
+    width: 21rem;
+    background-color: rgba(102, 102, 153, 0.9);
+    border-radius: 0.3rem;
+    padding: 0.2rem;
+    color: #fff;
+    display: grid;
+    text-align: center;
+    grid-template-rows: repeat(8, 2.5rem) 1fr 2.5rem;
+    align-items: center;
+}
+
+.book-form p {
+    align-self: start;
+}
+
+input[type=text] {
+    padding: 0.2rem;
+    margin: 0.4rem;
+    background-color: rgba(153, 153, 255, 0.8);
+    border: 0 var(--primary) solid;
+    border-radius: 0.4rem;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.form-buttons button {
+    appearance:none;
+    -webkit-appearance:none;
+    padding: 0.5rem;
+    margin: 0.2rem 0.5rem;
+    border: 0;
+    background-color: rgba(153, 153, 255, 0.8);
+    color: #fff;
+    font-weight: 600;
+    border-radius: 0.2rem;
+    width: 30%;
+    font-family: inherit;
+    font-size: inherit;
+    transition-duration: 0.4s;
+}
+
+.form-buttons button:hover {
+    background-color: rgba(102, 102, 153, 0.9);
+    color: #fff;
+}
+
+.error-message {
+    color: rgb(153, 0, 0);
+}
+
+/* Form read toggle */
+
+.read-toggle {
+    justify-self: center;
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+  }
+
+.read-toggle input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgb(153, 0, 0);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--gray);
+  -webkit-transition: .4s;
+  transition: .4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: rgb(51, 102, 0);
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+@media(max-width: 480px) {
+
+    .container {
+        height: 100%;
+        width: 100%;
+        grid-template-columns: 1fr;
+        grid-template-rows: 4rem 6rem 1fr 2.5rem;
+        grid-template-areas:
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+    }
+    #sidebar button {
+        margin: 0.5rem 0;
+        align-self: center;
+        justify-self: center;
+    }
+
+    #sidebar p {
+        margin: 0;
+        align-self: start;
+    }
+
+    #main {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 1fr;
+        justify-items: center;
+    }
+}
