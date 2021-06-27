@@ -6,11 +6,13 @@ const addBookBtn = document.querySelector(".sidebar-addbook");
 
 addBookBtn.addEventListener("click", displayForm);
 
-function Book(title, author, pages, read) {
-    this.title = title;
-    this.author = author;
-    this.pages = pages;
-    this.read = read;
+class Book {
+    constructor(title, author, pages, read) {
+        this.title = title;
+        this.author = author;
+        this.pages = pages;
+        this.read = read;
+    }
 }
 
 myLibrary.push(new Book("Gamedec. Granica rzeczywistości", "Marcin Przybyłek", "468", true));
