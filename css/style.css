@@ -385,7 +385,7 @@ input:checked + .slider:before {
     }
 
     #main {
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 1fr;
         grid-auto-rows: 1fr;
         justify-items: center;
     }
